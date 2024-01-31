@@ -1,0 +1,19 @@
+[package]
+name = "mcstats"
+version = "1.0.0"
+edition = "2021"
+
+[dependencies]
+reqwest = "0.11.18"
+poise = "0.6.0"
+tokio = "1.25.1"
+bytes = "1.5.0"
+rand = "0.8.5"
+mc-query = { git = "https://github.com/starmut/mc-query.git" }
+
+[profile.release]
+opt-level = 3
+strip = true
+lto = "fat"
+panic = "abort"
+codegen-units = 1
