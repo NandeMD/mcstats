@@ -1,6 +1,6 @@
 # mcstats
 
-A simple, lightweight (~1.5MB start, ~3.5MB idle memory usage) self-hosted Discord Slash Command Bot to see a self-hosted minecraft server's stats. It is especially helpful to use `/sniff` if you don't have static ip at home or your server.
+A simple, lightweight (~1.5MB start, ~3.5MB idle memory usage) self-hosted Discord Slash Command Bot to see a self-hosted minecraft server's stats. It is especially helpful to use `/sniff` if you don't have static ip at home or your server. Though it should be work for other public servers but ip received from `/sniff` will be wrong.
 
 ## Features
 1. Simple data and ip finding with `/sniff`:
