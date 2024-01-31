@@ -33,17 +33,12 @@ async fn sniff(ctx: Context<'_>) -> Result<(), Error> {
     }
     let server_status = server_status.unwrap();
 
-    let mut em = serenity::CreateEmbed::default()
+    let em = serenity::CreateEmbed::default()
         .title("Server Info")
         .field("IP:", resp.text().await?, true)
         .field("Version:", &server_status.version.name, true)
-        .field("Online / Max:", format!("{} / {}", &server_status.players.online, &server_status.players.max), true);
-
-    if let Some(url) = server_status.favicon {
-        em = em.thumbnail(url);
-    } else {
-        em = em.thumbnail(env::var("MCICONURL").unwrap())
-    }
+        .field("Online / Max:", format!("{} / {}", &server_status.players.online, &server_status.players.max), true)
+        .thumbnail(env::var("MCICONURL").unwrap());
 
     let reply = poise::CreateReply::default().embed(em);
 
@@ -109,7 +104,8 @@ async fn details(
                         .field("Game ID:", &resp.game_id, true)
                         .field("Game Type:", &resp.game_type, true)
                         .field("Map Name:", &resp.map, true)
-                        .field("Online / Max:", format!("{} / {}", &resp.num_players, &resp.max_players), true);
+                        .field("Online / Max:", format!("{} / {}", &resp.num_players, &resp.max_players), true)
+                        .thumbnail(env::var("MCICONURL").unwrap());
     
                     if !resp.players.is_empty() {
                         let players_string = &resp.players.join("\n* ");
@@ -140,7 +136,8 @@ async fn details(
                         .description(&resp.motd)
                         .field("Game Type:", &resp.game_type, true)
                         .field("Map Name:", &resp.map, true)
-                        .field("Online / Max:", format!("{} / {}", &resp.num_players, &resp.max_players), true);
+                        .field("Online / Max:", format!("{} / {}", &resp.num_players, &resp.max_players), true)
+                        .thumbnail(env::var("MCICONURL").unwrap());
 
                     let reply = poise::CreateReply::default().embed(em);
 
