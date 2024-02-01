@@ -25,6 +25,19 @@ A simple, lightweight (~1.5MB start, ~3.5MB idle memory usage) self-hosted Disco
 
 
 ## How To Use?
+
+### From Releases (recommended):
+1. Download latest release from [here](https://github.com/NandeMD/mcstats/releases).
+2. Extract the .zip archive.
+3. Edit the `sample.env` file.
+4. Rename `sample.env` to `.env`.
+5. Modify file permissions for `mcstats` binary:
+    * `sudo chmod +x mcstats`
+6. Run the bot:
+    * `./mcstats`
+
+
+### From Source:
 1. Install rust compiler and cargo from [here](https://www.rust-lang.org/learn/get-started).
 2. Clone the repository.
 3. Edit [`sample.env`](./sample.env) and rename it to `.env`.
